@@ -19,6 +19,6 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Your Name")
                                 .url("http://yourwebsite.com")
-                                .email("your.email@example.com")));
+                                .email("paula.leticia.braz@gmail.com")));
     }
 }
