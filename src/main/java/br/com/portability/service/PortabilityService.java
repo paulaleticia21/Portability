@@ -6,6 +6,7 @@ import br.com.portability.exception.PortabilityException;
 import br.com.portability.repository.PortabilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +22,7 @@ public class PortabilityService {
     }
 
     public List<Portability> findAll() {
-        repository.findAll();
-        return List.of();
+        return repository.findAll();
     }
 
     public Optional<Portability> findById(String portabilityId) {

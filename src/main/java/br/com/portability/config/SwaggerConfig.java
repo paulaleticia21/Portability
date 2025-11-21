@@ -1,10 +1,12 @@
 package br.com.portability.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
@@ -17,8 +19,15 @@ public class SwaggerConfig {
                         .version("1.0")
                         .description("API for managing portabilities")
                         .contact(new Contact()
-                                .name("Your Name")
-                                .url("http://yourwebsite.com")
-                                .email("paula.leticia.braz@gmail.com")));
+                                .name("Equipe Portability")
+                                .url("https://seusite.com")
+                                .email("paula.leticia.braz@gmail.com")))
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .components(new io.swagger.v3.oas.models.Components()
+                        .addSecuritySchemes("bearerAuth",
+                                new SecurityScheme()
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")));
     }
 }
